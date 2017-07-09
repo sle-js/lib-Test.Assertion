@@ -18,16 +18,16 @@ Some commentary on this signature:
   `Promise.resolve`, `Promise.reject`, `Promise.all` and `Promise.race`.  These functions are not included in the
   interface's signature.
   
-Having defined `Promise` it is not possible to define `Assertion`.
+Having defined `Promise` it is now possible to define `Assertion`.
 
 ```haskell
-interface Assertion extends Promise { fileName = String, lineNumber = Int, message = String } ()
+interface Assertion extends Promise { fileName :: String, lineNumber :: Int, message :: String } ()
 ```
 
 Some commentary on this signature:
 
-* The notation `{ fileName = String, lineNumber = Int, message = String }` describes a record type - 3 fields with the
-  associated names and types.
+* The notation `{ fileName :: String, lineNumber :: Int, message :: String }` describes a record type - 3 named fields with
+  their types.
 * The notation `()` for the promise's success type defines it as an any type.
 * As described earlier this signature describes how the testing framework is able to interpret the result of an 
   assertion and, in the event that an assertion has failed, provide a diagnostic as to where the failure occurred.  The
